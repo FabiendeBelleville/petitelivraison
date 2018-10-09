@@ -1,15 +1,13 @@
-package application;
+package persistance;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import model.Address;
-import model.Agence;
-import model.Person;
+import model.Car;
 
-public class CreatePersonAddress {
+public class Update {
 
 	public static void main(String[] args) {
 
@@ -25,16 +23,12 @@ public class CreatePersonAddress {
 		try {
 			System.out.println("try");
 			txn.begin();
-			Person c = new Person();
-			Address a = new Address();
-			c.setFirstName("Roger");
-			c.setLastName("Nik");
-			a.setStreet("Folie-R");
-			a.setNumber("32 bis");
-			a.setZipcode("75001");
-			a.setTown("Paris");
-			c.setAddress(a);
-			em.persist(c);
+			Car findPerson = em.find(Car.class, 1L);
+			// Même si on est juste en find, il met à jour l'objet dans la base car il
+			// surveille l'objet
+			findPerson.setFirstName("Laurence");
+			System.out.println(findPerson);
+
 			txn.commit();
 
 		} catch (Exception e) {

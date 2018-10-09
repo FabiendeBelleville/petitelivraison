@@ -1,38 +1,39 @@
-package application;
+package persistance;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import model.Agence;
-import model.Customer;
+import model.Engine;
+import model.Car;
 
-public class CreateCustomer {
+public class Create {
 
 	public static void main(String[] args) {
 
 		System.out.println("Hello you !");
-		System.out.println("How are-u doing dud?");
-		System.out.println("Let start the program !!! Go ! Go !");
-		System.out.println("***************************************************************");
+
 		System.out.println("***************************************************************");
 		System.out.println("***************************************************************");
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("tablefabien2");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("car");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
 		try {
 			System.out.println("try");
 			txn.begin();
-			Customer c = new Customer();
-			c.setName("Roger");
-			c.setAge(32);
-			Agence a = new Agence();
-			a.setName("LCL Paris JOURDAIN");
+			Car c = new Car();
+			Engine a = new Engine();
+			c.setFirstName("Roger");
+			c.setLastName("Nik");
+			a.setStreet("Folie-R");
+			a.setNumber("32 bis");
+			a.setZipcode("75001");
+			a.setTown("Paris");
+			c.setAddress(a);
 			em.persist(c);
-			em.persist(a);
 			txn.commit();
 
 		} catch (Exception e) {

@@ -3,14 +3,14 @@ package model;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class Address {
+public class Engine {
 
 	private String street;
 	private String number;
 	private String zipcode;
 	private String town;
 
-	public Address() {
+	public Engine() {
 		super();
 	}
 

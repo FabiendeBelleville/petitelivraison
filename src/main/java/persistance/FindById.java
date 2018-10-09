@@ -1,21 +1,18 @@
-package application;
+package persistance;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import model.Agence;
-import model.Customer;
+import model.Car;
 
-public class RemoveCustomer {
+public class FindById {
 
 	public static void main(String[] args) {
 
 		System.out.println("Hello you !");
-		System.out.println("How are-u doing dud?");
-		System.out.println("Let start the program !!! Go ! Go !");
-		System.out.println("***************************************************************");
+
 		System.out.println("***************************************************************");
 		System.out.println("***************************************************************");
 
@@ -26,8 +23,12 @@ public class RemoveCustomer {
 		try {
 			System.out.println("try");
 			txn.begin();
-			Customer c = em.find(Customer.class, 3L);
-			em.remove(c);
+			Car findPerson = em.find(Car.class, 1L);
+			// Même si on est juste en find, il met à jour l'objet dans la base car il
+			// surveille l'objet
+			findPerson.setFirstName("Laurence");
+			System.out.println(findPerson);
+
 			txn.commit();
 
 		} catch (Exception e) {

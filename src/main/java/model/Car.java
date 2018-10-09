@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 @Entity
 
-public class Person {
+public class Car {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,9 +16,9 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	@Embedded
-	private Address address;
+	private Engine address;
 
-	public Person() {
+	public Car() {
 		super();
 	}
 
@@ -38,11 +38,11 @@ public class Person {
 		this.lastName = lastName;
 	}
 
-	public Address getAddress() {
+	public Engine getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(Engine address) {
 		this.address = address;
 	}
 
