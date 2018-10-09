@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+
+	<persistence-unit name="tablefabien2"
+		transaction-type="RESOURCE_LOCAL">
+		<properties>
+			<!-- Database connection settings -->
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost/tablefabien2?createDatabaseIfNotExist=true" />
+			<!-- value="jdbc:mysql://localhost:3306/entityjpa?createDatabaseIfNotExists=true" 
+				/> -->
+
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
+
+			<!-- SQL dialect -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQLDialect" />
+			<!-- value="org.hibernate.dialect.MySQLDialect" -->
+			<!-- value="org.hibernate.dialect.MariaDBDialect" -->
+
+
+			<!-- Create/update tables automatically using mapping metadata -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!-- si on met value="create-drop", alors il créer et puis il efface tout 
+				: utile pour les tests -->
+			<!-- si on met value="create", alors il créer mais il efface pas à la 
+				fin. par contre il vide le contenu. Seule la structure subsiste : utile en 
+				développement -->
+			<!-- si on met value="update", alors il laisse les données. Quand on va 
+				relancer, il garde les données et fait des alter tables si besoin. les données 
+				sont conservées -->
+			<!-- si on met value="validate", alors il vérifie que la base de donnée 
+				corresppond bien à la structure que l'on souhaite. utile quand le projet 
+				est presque terminé, il refusera de faire une modification de sutructure 
+				de la base -->
+
+			<!-- Pretty print the SQL in the log file and console -->
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.show_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
+
+
+
+
+
+
