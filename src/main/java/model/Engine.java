@@ -5,50 +5,32 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Engine {
 
-	private String street;
-	private String number;
-	private String zipcode;
-	private String town;
+	private String power;
+	private String energy;
 
 	public Engine() {
 		super();
 	}
 
-	public String getStreet() {
-		return street;
+	public String getPower() {
+		return power;
 	}
 
-	public void setStreet(String street) {
-		this.street = street;
+	public void setPower(String power) {
+		this.power = power;
 	}
 
-	public String getNumber() {
-		return number;
+	public String getEnergy() {
+		return energy;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
-	public String getZipcode() {
-		return zipcode;
-	}
-
-	public void setZipcode(String zipcode) {
-		this.zipcode = zipcode;
-	}
-
-	public String getTown() {
-		return town;
-	}
-
-	public void setTown(String town) {
-		this.town = town;
+	public void setEnergy(String energy) {
+		this.energy = energy;
 	}
 
 	@Override
 	public String toString() {
-		return "Address [street=" + street + ", number=" + number + ", zipcode=" + zipcode + ", town=" + town + "]";
+		return "Engine [power=" + power + ", energy=" + energy + "]";
 	}
 
 }

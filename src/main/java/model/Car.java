@@ -13,42 +13,47 @@ public class Car {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	private String firstName;
-	private String lastName;
+	private String brand;
+	private String model;
 	@Embedded
-	private Engine address;
+	private Engine engine;
 
 	public Car() {
 		super();
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getBrand() {
+		return brand;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getModel() {
+		return model;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setModel(String model) {
+		this.model = model;
 	}
 
-	public Engine getAddress() {
-		return address;
+	public Engine getEngine() {
+		return engine;
 	}
 
-	public void setAddress(Engine address) {
-		this.address = address;
+	public void setEngine(Engine engine) {
+		this.engine = engine;
+	}
+
+	public Long getId() {
+		return id;
 	}
 
 	@Override
 	public String toString() {
-		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + "]";
+		return "Car [id=" + id + ", brand=" + brand + ", model=" + model + ", engine=" + engine + "]";
 	}
 
+	
 }
