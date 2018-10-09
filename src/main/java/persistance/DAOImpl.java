@@ -67,7 +67,8 @@ public class DAOImpl implements DAO {
 	public void update(Car c) {
 		try {
 			txn.begin();
-			c = em.find(Car.class, 1L);
+			Car c0 = em.find(Car.class, 1L);
+			c0 = c;
 			// Même si on est juste en find, il met à jour l'objet dans la base car il
 			// surveille l'objet
 
@@ -91,10 +92,10 @@ public class DAOImpl implements DAO {
 	}
 
 	@Override
-	public void delete(Car c) {
+	public void delete(Long id) {
 		try {
 			txn.begin();
-			c = em.find(Car.class, 3L);
+			Car c = em.find(Car.class, id);
 			em.remove(c);
 			txn.commit();
 

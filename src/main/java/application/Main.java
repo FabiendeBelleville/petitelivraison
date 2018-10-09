@@ -17,23 +17,23 @@ public class Main {
 		Engine e = new Engine();
 
 		// Create
-//		c.setBrand("Renault");
-//		c.setModel("Twingo");
-//		e.setPower("52 chx");
-//		e.setEnergy("gas");
-//		c.setEngine(e);
-//
-//		dao.create(c);
+		c.setBrand("Renault");
+		c.setModel("Twingo");
+		e.setPower("52 chx");
+		e.setEnergy("gas");
+		c.setEngine(e);
+
+		dao.create(c);
 
 		// Find By Id
-//		dao.findById(1L);
+		dao.findById(1L);
 
 		// Update
 		c.setBrand("BMW");
 		dao.update(c);
 
 		// Delete
-//		dao.delete(c);
+		dao.delete(1L);
 
 	}
 

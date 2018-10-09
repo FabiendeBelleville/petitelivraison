@@ -10,6 +10,6 @@ public interface DAO {
 
 	public void update(Car c) ;
 
-	public void delete(Car c);
+	public void delete(Long id);
 
 }
