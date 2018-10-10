@@ -14,15 +14,15 @@ public class DAOImpl implements DAO {
 	EntityManager em = emf.createEntityManager();
 	EntityTransaction txn = em.getTransaction();
 
-	public void create(Car c) {
+	public void create(Car c, Engine e) {
 		try {
 			txn.begin();
-
 			em.persist(c);
+			em.persist(e);
 			txn.commit();
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 			if (txn != null) {
 				txn.rollback();
 			}
@@ -47,8 +47,8 @@ public class DAOImpl implements DAO {
 			System.out.println(c);
 			txn.commit();
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 			if (txn != null) {
 				txn.rollback();
 			}
@@ -64,20 +64,18 @@ public class DAOImpl implements DAO {
 	}
 
 	@Override
-	public void update(Car c) {
+	public void update(Long idEngine, Long idCar) {
 		try {
 			txn.begin();
-			Car c0 = em.find(Car.class, 1L);
-			c0 = c;
-			// Même si on est juste en find, il met à jour l'objet dans la base car il
-			// surveille l'objet
 
-			System.out.println(c);
-
+			Car c2 = em.find(Car.class, idCar);
+			Engine e2 = em.find(Engine.class, idEngine);
+			c2.addEngine(e2);
+			
 			txn.commit();
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 			if (txn != null) {
 				txn.rollback();
 			}
@@ -99,8 +97,8 @@ public class DAOImpl implements DAO {
 			em.remove(c);
 			txn.commit();
 
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
 			if (txn != null) {
 				txn.rollback();
 			}

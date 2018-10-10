@@ -1,12 +1,24 @@
 package model;
 
-import javax.persistence.Embeddable;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-@Embeddable
+@Entity
 public class Engine {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private String power;
 	private String energy;
+	// Many Student To One Professor
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinColumn(name = "Car_id")
+	private Car car;
 
 	public Engine() {
 		super();
@@ -28,9 +40,12 @@ public class Engine {
 		this.energy = energy;
 	}
 
-	@Override
-	public String toString() {
-		return "Engine [power=" + power + ", energy=" + energy + "]";
+	public Car getCar() {
+		return car;
+	}
+
+	public void setCar(Car car) {
+		this.car = car;
 	}
 
 }

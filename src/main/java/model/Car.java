@@ -1,13 +1,16 @@
 package model;
 
-import javax.persistence.Embedded;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
-
 public class Car {
 
 	@Id
@@ -15,8 +18,9 @@ public class Car {
 	private Long id;
 	private String brand;
 	private String model;
-	@Embedded
-	private Engine engine;
+	// One Car To Many Engines
+	@OneToMany(mappedBy = "car", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	private Set<Engine> engines = new HashSet<>();
 
 	public Car() {
 		super();
@@ -38,28 +42,22 @@ public class Car {
 		this.model = model;
 	}
 
-	public Engine getEngine() {
-		return engine;
+	public Set<Engine> getEngines() {
+		return engines;
 	}
 
-	public void setEngine(Engine engine) {
-		this.engine = engine;
+	public void setEngines(Set<Engine> engines) {
+		this.engines = engines;
 	}
 
 	public Long getId() {
 		return id;
 	}
-	
+
 	// methodes
 		public void addEngine(Engine e) {
 			engines.add(e);
 			e.setCar(this);
 		}
 
-	@Override
-	public String toString() {
-		return "Car [id=" + id + ", brand=" + brand + ", model=" + model + ", engine=" + engine + "]";
-	}
-
-	
 }

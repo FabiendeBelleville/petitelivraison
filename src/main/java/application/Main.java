@@ -12,28 +12,30 @@ public class Main {
 		// DAO
 		DAO dao = new DAOImpl();
 
-		// Objet
-		Car c = new Car();
-		Engine e = new Engine();
-
 		// Create
-		c.setBrand("Renault");
-		c.setModel("Twingo");
-		e.setPower("52 chx");
-		e.setEnergy("gas");
-		c.setEngine(e);
-
-		dao.create(c);
+		// Objet
+//		Car c = new Car();
+//		Engine e = new Engine();
+//
+//		c.setBrand("BMW");
+//		c.setModel("Série 5");
+//		e.setPower("192 chx");
+//		e.setEnergy("gas");
+//		e.setCar(c);
+//
+//		dao.create(c, e);
 
 		// Find By Id
-	//	dao.findById(1L);
+		// dao.findById(1L);
 
 		// Update
-	//	c.setBrand("BMW");
-	//	dao.update(c);
+		// mettre le moteur 52chx gaz (id=2) dans la BMW Série 5 (id=3)
+		Long idEngine = (long) 2;
+		Long idCar = (long) 3;
+		dao.update(idEngine, idCar);
 
 		// Delete
-	//	dao.delete(1L);
+		// dao.delete(1L);
 
 	}
 
