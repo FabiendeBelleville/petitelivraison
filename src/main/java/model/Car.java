@@ -49,6 +49,12 @@ public class Car {
 	public Long getId() {
 		return id;
 	}
+	
+	// methodes
+		public void addEngine(Engine e) {
+			engines.add(e);
+			e.setCar(this);
+		}
 
 	@Override
 	public String toString() {

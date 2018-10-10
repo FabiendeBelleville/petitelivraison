@@ -26,14 +26,14 @@ public class Main {
 		dao.create(c);
 
 		// Find By Id
-		dao.findById(1L);
+	//	dao.findById(1L);
 
 		// Update
-		c.setBrand("BMW");
-		dao.update(c);
+	//	c.setBrand("BMW");
+	//	dao.update(c);
 
 		// Delete
-		dao.delete(1L);
+	//	dao.delete(1L);
 
 	}
 
